@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>To-Do</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="./icons/checklist_black_24dp.svg" alt="checklist">
+            <h1>To-Do List</h1>
+        </header>
+        <nav class="navigation">
+            <ul class="nav">
+                <li><button id='all'>All</button></li>
+            </ul>
+            <button data-modal-target="#modal" class="btn project">Add Project</button>
+            <ul class="project-list">
+            </ul>
+        </nav>
+        <h1 class="main-header"></h1>
+        <main class="content" id="main">
+            <div class="task">
+                <div class="task-num">
+                    <p>Tasks:</p>
+                    <p class="taskCount">0</p>
+                </div>
+                <button id="addBtn" class="add-task"><i class="fa fa-plus"></i></button>
+            </div>
+            <ul id="display-tasks">
+            </ul>
+        </main>
+    </div>
+    <form action="post" class="modal" id="modal">
+        <fieldset class="form-modal">
+            <h1>Create New</h1>  
+
+            <label for="title" class="label"><b>Title</b></label>
+            <input type="text" placeholder="Renovate" name="Title" id="title" required>
+
+            <label for="description" class="label"><b>Description</b></label>
+            <textarea name="description" id="description" cols="14" rows="10" required></textarea>
+
+            <button type="submit" class="btn add" id="addProject">Add</button>
+            <button data-close-button type="button" class="btn cancel">Cancel</button>
+        </fieldset>
+    </form>
+    <form action="post" class="modal2" id="modal2">
+        <fieldset class="form-modal2">
+            <h1>Create Todo</h1>
+
+            <label for="todo-title" class="label"><b>Title</b></label>
+            <input type="text" placeholder="Bills" name="todo-title" id="todo-title" required>
+
+            <label for="todo-description" class="label"><b>Description</b></label>
+            <input type="text" name="description" id="todo-description" required></input>
+
+            <label for="date" class="label"><b>Due Date</b></label>
+            <input type="date" placeholder="25/12/2023" name="date" id="date" required>
+
+            <label for="priority" class="label"><b>Priority</b></label>
+            <select name="selection" id="priority-selection">
+                <option value="">--Please choose an option--</option>
+                <option value="low">Low</option>
+                <option value="med">Medium</option>
+                <option value="high">High</option>
+            </select>
+            
+            <button type="button" class="addTodo" id="addTodo">Add</button>
+            <button type="button" class="edit hide" id="edit">Edit</button>
+            <button data-close-btn id="close" type="button" class="btn cancel">Cancel</button>
+        </fieldset>
+    </form>
+    <div class="popup" id="popup">
+        <div class="popup-content">
+          <span class="close close1" id="closePopup">&times;</span>
+          <h2>Delete Confirmation</h2>
+          <p>Are you sure you want to delete this?</p>
+          <button id="confirmDelete" class="confirmDelete">Yes, Delete</button>
+          <button id="cancelDelete" class="close1">Cancel</button>
+        </div>
+    </div>
+    <div id="overlay"></div>
+    <script src="https://kit.fontawesome.com/694d6bc22e.js" crossorigin="anonymous"></script>
+    <script src="main.js" defer></script>
+</body>
+</html>
